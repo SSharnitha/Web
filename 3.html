@@ -1,0 +1,93 @@
+<!Doctype html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="1.css">
+        <title>Sign Up Form</title>
+        <script>
+        function validateForm(){
+            var fname=document.forms["myform"]["fname"].value;
+            var lname=document.forms["myform"]["lname"].value;
+            var password1=document.forms["myform"]["pass1"].value;
+            var password2=document.forms["myform"]["pass2"].value;
+            var uname=document.forms["myform"]["uname"].value;
+
+            if (fname==null || lname=="" || uname=="")
+            {  
+                alert("Enter the name");  
+                return false;  
+            }
+            if (fname.length<8 || uname.length<8 || uname.length<8)
+            {  
+                alert("Enter valid name");  
+                return false;  
+            }                        
+                                                 
+            if(password1.length<6)
+            {  
+                alert("Password must be at least 6 characters long.");  
+                return false;
+            }
+            if(password2!=password1)
+            {  
+                alert("Password mismatch");  
+                return false;
+            }  
+                           
+            var phn = document.forms["myform"]["number"].value;
+    
+            if(phn.length<10 || phn.length>10)
+            {
+                alert("Enter correct number");
+                return false;
+            }else if(isNaN(phn))
+            {
+                alert("check The phone number");
+                return false;
+            }
+
+        }
+        </script>
+    </head>
+    <body class="body3">
+        <center><h1>Create Your Account Here</h1></center>
+        <form  class="form1" action="1.php" method="POST" onsubmit="return validateForm()" name="myform">
+            Name<br>
+                <input type="text" name="name1" id="fname" placeholder="First" autofocus required>
+                <input type="text" name="name2" id="lname" placeholder="Last" required>
+            
+            <br><br>Choose your username<br>
+                <input type="text" name="name3" id="uname" placeholder="Username" required>
+            
+            <br><br>Create a password<br>
+                 <input type="password" id="pass1" name="password1" required>
+           
+            <br><br>Confirm your password<br>
+                 <input type="password" id="pass2" name="password2" required>
+            
+            <br><br>Birthday<br>
+                <input type="date" value="1" name="date" required>
+            
+            <br><br>Gender<br>
+                <select name="dropbox">
+                    <option>Male</option>
+                    <option selected>Female</option>
+                    <option>Other</option>
+                    <option>Rather not say</option>
+                </select>
+           
+            <br><br>Mobile number<br>
+                <input name="number" id="number" type="mobile number" required>
+            
+            <br><br>Location<br>
+                <input id="chrec" type="text" placeholder="Country" required>
+            
+            <br><br>Other<br>
+                 <textarea rows="5" cols="40">  
+                 </textarea>
+            
+            <br><br><input type="submit" value="Submit">
+    
+        </form>
+        
+    </body>
+</html>
